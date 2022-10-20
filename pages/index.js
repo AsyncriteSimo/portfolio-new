@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import {BsFillMoonStarsFill} from 'react-icons/bs'
 import {AiFillTwitterCircle, AiFillLinkedin, AiFillYoutube} from 'react-icons/ai'
+import Image from "next/image";
+import dev from '../public/yan-dev.png'
+
 
 export default function Home() {
   return (
@@ -14,7 +17,7 @@ export default function Home() {
       <main className="bg-white px-10" >
        <section className="min-h-screen" >
         <nav className="py-10 mb-12 flex justify-between" >
-          <h1 className="text-xl font-burtons " >developedbyed</h1>
+          <h1 className="text-xl font-burtons " >developed bySimo</h1>
           <ul className="flex items-center" >
             <li>
               <BsFillMoonStarsFill className="cursor-pointer text-2xl" />
@@ -27,14 +30,20 @@ export default function Home() {
           </ul>
         </nav>
 
-        <div>
-          <h2>Asyncrite Simo Simo</h2>
-          <h3>Developer and Designer.</h3>
-          <p>Informatic engineer at the HTW Berlin of Applied Sciences. My academic backkground is a mixture of computer science and mechanical engineering</p>
+        <div className="text-center p-10 py-10" >
+          <h2 className="text-5xl py-2 text-teal-600 font-medium" >Asyncrite Simo Simo</h2>
+          <h3 className="text-2xl py-2" >Developer and Designer.</h3>
+          <p className="text-md py-5 leading-8 text-gray-800" >Informatic engineer at the HTW Berlin of Applied Sciences. My academic backkground is a mixture of computer science and mechanical engineering</p>
         </div>
 
-        <div>
-          
+        <div className="flex text-5xl justify-center gap-16 py-3 text-gray-600 " >
+          <AiFillTwitterCircle />
+          <AiFillLinkedin />
+          <AiFillYoutube />
+        </div>
+        
+        <div className="relative bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mx-auto overflow-hidden" >
+          <Image src={dev} layout="fill" objectFit='cover' />
         </div>
        </section>
       </main>
