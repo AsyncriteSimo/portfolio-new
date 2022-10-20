@@ -13,14 +13,36 @@ import gmail1 from '../public/gmail.png'
 import web3 from '../public/web3.png'
 import web6 from '../public/web6.png'
 import hulu from '../public/hulu-clone.png'
-import {useState} from "react"
+import {useState, useRef} from "react"
 import Link from 'next/link'
+import emailjs from '@emailjs/browser'
+
+
 
 
 
 export default function Home() {
 
   const [darkMode, setDarkMode] = useState(false);
+  const [done, setDone] = useState(false);
+
+  const formRef = useRef();
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      emailjs.sendForm(
+          'service_cc71u0f', 
+          'template_gc3dfjt', 
+          formRef.current, 
+          'user_JEUhIkUdOFsAWVacOn6Oo')
+    .then((result) => {
+        console.log(result.text);
+        setDone(true);
+    }, (error) => {
+        console.log(error.text);
+    });
+  }
+  
 
   return (
     <div className={darkMode ? 'dark' : ""} >
@@ -216,26 +238,29 @@ export default function Home() {
        </section>
 
        <section>
-          <div className="flex justify-around items-center text-center" >
-            <div>
+          <div className="flex justify-around items-center text-center md:gap-10" >
+            <div className="hidden lg:inline " >
               <h1 className="text-lg mb-5 p-5 dark:text-white" >Let's discuss your project</h1>
               <div className="relative bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mx-auto overflow-hidden md:h-96 md:w-96" >
                 <Image src={yan} layout="fill" objectFit='cover' />
               </div>
             </div>
 
-            <div className="flex flex-col" >
+            <div className="flex flex-col " >
               <h3 className="dark:text-white mb-5" > <span className="text-teal-700 font-bold ">What's your Story ?</span> Get in touch. Always ready to start new project and face new Challenges</h3>
-              <form className="flex flex-col gap-3" >
-                <input className="text-md rounded-md p-2 border border-sky-300 outline-0 dark:bg-transparent text-white"  type="text" placeholder='Name' />
-                <input className="text-md rounded-md p-2 border border-sky-300 outline-0 dark:bg-transparent text-white"  type="text" placeholder="Subject" />
-                <input className="text-md rounded-md p-2 border border-sky-300 outline-0 dark:bg-transparent text-white" type="email" placeholder="Email" />
-                <textarea className="text-md rounded-md p-2 border border-sky-300 outline-0 dark:bg-transparent text-white" name="" id="" cols="30" rows="10" placeholder="Message" />
+              <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-3" >
+                <input className="text-md rounded-md p-2 border border-sky-300 outline-0 dark:bg-transparent dark:text-white"  type="text" placeholder='Name' />
+                <input className="text-md rounded-md p-2 border border-sky-300 outline-0 dark:bg-transparent dark:text-white"  type="text" placeholder="Subject" />
+                <input className="text-md rounded-md p-2 border border-sky-300 outline-0 dark:bg-transparent dark:text-white" type="email" placeholder="Email" />
+                <textarea className="text-md rounded-md p-2 border border-sky-300 outline-0 dark:bg-transparent dark:text-white" name="" id="" cols="30" rows="10" placeholder="Message" />
                 <button className="border h-10 w-13 mb-5 border-sky-300 dark:text-white">submit</button>
+                {done && "thank you...your message have been sent"}
               </form>
             </div>
             
           </div>
+
+          <p className="text-center p-8 dark:text-white" >Copyright &copy;{new Date().getFullYear()}</p>
 
 
        
