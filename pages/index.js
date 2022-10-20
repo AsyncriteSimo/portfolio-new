@@ -11,7 +11,7 @@ import linkedin from '../public/linkedin-clone.png'
 import yan from '../public/yan-dev.png'
 import gmail1 from '../public/gmail.png'
 import web3 from '../public/web3.png'
-import web6 from '../public/web6.png'
+import web5 from '../public/web5.png'
 import hulu from '../public/hulu-clone.png'
 import {useState, useRef} from "react"
 import Link from 'next/link'
@@ -232,7 +232,7 @@ export default function Home() {
 
           <div className="basis-1/3 flex-1 " >
             <h3 className="mb-2 dark:text-white font-bold" >Dummy</h3>
-            <Image src={web6} className="rounded-lg object-cover cursor-pointer " width={"100%"} height={"100%"} layout="responsive" />
+            <Image src={web5} className="rounded-lg object-cover cursor-pointer " width={"100%"} height={"100%"} layout="responsive" />
           </div>
         </div>
        </section>
