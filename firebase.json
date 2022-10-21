@@ -1,17 +1,10 @@
 {
   "hosting": {
-    "public": "build",
-    "site": "asyncrite-portfolio-f3668",
+    "public": "out",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   },
   "functions": {
