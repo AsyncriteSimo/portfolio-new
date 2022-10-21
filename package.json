@@ -10,7 +10,8 @@
     "lint": "next lint",
     "export": "next export",
     "deploy": "firebase deploy --only functions, hosting",
-    "out": "next build && next export"
+    "out": "next build && next export",
+    "type": "module"
   },
   "dependencies": {
     "@emailjs/browser": "^3.7.0",

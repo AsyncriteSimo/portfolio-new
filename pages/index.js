@@ -19,9 +19,6 @@ import emailjs from '@emailjs/browser'
 /* eslint no-use-before-define: 0 */
 
 
-
-
-
 export default function Home() {
 
   const [darkMode, setDarkMode] = useState(false);
