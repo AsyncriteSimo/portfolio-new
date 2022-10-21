@@ -16,6 +16,7 @@ import hulu from '../public/hulu-clone.png'
 import {useState, useRef} from "react"
 import Link from 'next/link'
 import emailjs from '@emailjs/browser'
+/* eslint no-use-before-define: 0 */
 
 
 
